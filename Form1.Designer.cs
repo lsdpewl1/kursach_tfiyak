@@ -75,6 +75,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.error = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,8 +86,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.error = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -110,8 +110,7 @@
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1394, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(775, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -521,7 +520,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(1394, 609);
+            this.splitContainer1.Size = new System.Drawing.Size(775, 609);
             this.splitContainer1.SplitterDistance = 302;
             this.splitContainer1.TabIndex = 6;
             // 
@@ -547,6 +546,7 @@
             this.inputTextBox.CharWidth = 12;
             this.inputTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputTextBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.inputTextBox.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.inputTextBox.IsReplaceMode = false;
             this.inputTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
             this.inputTextBox.LeftBracket = '(';
@@ -586,13 +586,29 @@
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.error,
             this.position});
-            this.dataGridView2.Location = new System.Drawing.Point(779, 40);
+            this.dataGridView2.Location = new System.Drawing.Point(0, 40);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 62;
             this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(602, 255);
+            this.dataGridView2.Size = new System.Drawing.Size(773, 255);
             this.dataGridView2.TabIndex = 0;
+            // 
+            // error
+            // 
+            this.error.HeaderText = "Ошибка";
+            this.error.MinimumWidth = 8;
+            this.error.Name = "error";
+            this.error.ReadOnly = true;
+            this.error.Width = 350;
+            // 
+            // position
+            // 
+            this.position.HeaderText = "Позиция";
+            this.position.MinimumWidth = 8;
+            this.position.Name = "position";
+            this.position.ReadOnly = true;
+            this.position.Width = 150;
             // 
             // dataGridView1
             // 
@@ -659,7 +675,7 @@
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 739);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1394, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(775, 22);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -668,27 +684,11 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 15);
             // 
-            // error
-            // 
-            this.error.HeaderText = "Ошибка";
-            this.error.MinimumWidth = 8;
-            this.error.Name = "error";
-            this.error.ReadOnly = true;
-            this.error.Width = 350;
-            // 
-            // position
-            // 
-            this.position.HeaderText = "Позиция";
-            this.position.MinimumWidth = 8;
-            this.position.Name = "position";
-            this.position.ReadOnly = true;
-            this.position.Width = 150;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1394, 761);
+            this.ClientSize = new System.Drawing.Size(775, 761);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);

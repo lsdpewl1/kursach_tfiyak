@@ -392,11 +392,11 @@ namespace laba1
 
         private void TYPEREM(DataGridView dataGridView1)
         {
-            //try
-            //{
-            //    if (lexemes[position].Type == LexemeType.Delimiter)
-            //    {
-            //        position++;
+            try
+            {
+                if (lexemes[position].Type == LexemeType.Delimiter)
+                {
+                    position++;
                     try
                     {
                         int res = 0;
@@ -458,72 +458,74 @@ namespace laba1
                         dataGridView1.Rows.Add($"Неожиданный символ '\0'");
                         counter++;
                     }
-                //}
+                }
 
-                //else {
+                else
+                {
 
-                //    int res = 0;
-                //    for (int u = position; u < lexemes.Count; u++)
-                //    {
-                //        if (lexemes[u].Type == LexemeType.Equally)
-                //        {
-                //            res = 1;
-                //        }
-                //    }
+                    int res = 0;
+                    for (int u = position; u < lexemes.Count; u++)
+                    {
+                        if (lexemes[u].Type == LexemeType.Equally)
+                        {
+                            res = 1;
+                        }
+                    }
 
-                //    if (res == 0)
-                //    {
-                //        dataGridView1.Rows.Add($"Ошибка синтаксиса в позиции {lexemes[position].StartPosition}: ожидался равно");
-                //        counter++;
-                //        EQUAL(dataGridView1);
-                //    }
-                //    else
-                //    {
+                    if (res == 0)
+                    {
+                        dataGridView1.Rows.Add("Ожидалось равно", lexemes[position].StartPosition);
+                        counter++;
+                        EQUAL(dataGridView1);
+                    }
+                    else
+                    {
 
-                //        if (lexemes[position].Type == LexemeType.Equally)
-                //        {
-                //            str += lexemes[position].Token;
-                //            position++;
-                //            EQUAL(dataGridView1);
-                //        }
-                //        else if (lexemes[position].Type == LexemeType.Invalid)
-                //        {
+                        if (lexemes[position].Type == LexemeType.Equally)
+                        {
+                            str += lexemes[position].Token;
+                            position++;
+                            EQUAL(dataGridView1);
+                        }
+                        else if (lexemes[position].Type == LexemeType.Invalid)
+                        {
 
-                //            dataGridView1.Rows.Add($"Недопустимый символ {lexemes[position].Token} в позиции {lexemes[position].StartPosition}");
-                //            counter++;
-                //            position++;
-                //            TYPEREM(dataGridView1);
-                //        }
-                //        else if (lexemes[position].Type != LexemeType.Equally/* && lexemes[position].Type != LexemeType.Delimiter*/)
-                //        {
+                            dataGridView1.Rows.Add($"Недопустимый символ {lexemes[position].Token} в позиции {lexemes[position].StartPosition}");
+                            counter++;
+                            position++;
+                            TYPEREM(dataGridView1);
+                        }
+                        else if (lexemes[position].Type != LexemeType.Equally/* && lexemes[position].Type != LexemeType.Delimiter*/)
+                        {
 
-                //            //int res2 = 0;
-                //            //for (int u = 0; u < lexemes.Count; u++)
-                //            //{
-                //            //    if (lexemes[u].Type == LexemeType.Equally/* && lexemes[u].Type != LexemeType.Delimiter*/)
-                //            //    {
-                //            //        res2 = 1;
-                //            //    }
-                //            //}
+                            int res2 = 0;
+                            for (int u = 0; u < lexemes.Count; u++)
+                            {
+                                if (lexemes[u].Type == LexemeType.Equally/* && lexemes[u].Type != LexemeType.Delimiter*/)
+                                {
+                                    res2 = 1;
+                                }
+                            }
 
-                //            //if (res2 == 0)
-                //            //{
-                //            //    dataGridView1.Rows.Add($"Ошибка синтаксиса в позиции {lexemes[position].StartPosition}: ожидался равно");
-                //            //    counter++;
-                //            //    EQUAL(dataGridView1);
-                //            //}
-                //            //else
-                //            //{
-                //                dataGridView1.Rows.Add($"Отброшенный символ {lexemes[position].Token} в позиции {lexemes[position].StartPosition}");
-                //                counter++;
-                //                position++;
-                //                TYPEREM(dataGridView1);
-                //            //}
+                            if (res2 == 0)
+                            {
+                                dataGridView1.Rows.Add($"Ошибка синтаксиса в позиции {lexemes[position].StartPosition}: ожидался равно");
+                                counter++;
+                                EQUAL(dataGridView1);
+                            }
+                            else
+                            {
+                                dataGridView1.Rows.Add($"Отброшенный символ {lexemes[position].Token} в позиции {lexemes[position].StartPosition}");
+                            counter++;
+                            position++;
+                            TYPEREM(dataGridView1);
+                            }
 
-                //        }
-                //    }
-                //}
-           
+                        }
+                    }
+                }
+
+
                 //else
                 //{
                 //    dataGridView1.Rows.Add($"Ошибка синтаксиса в позиции {lexemes[position].StartPosition}: ожидался равно");
@@ -531,20 +533,20 @@ namespace laba1
                 //    EQUAL(dataGridView1);
                 //}
 
-            //}
-            //catch (ArgumentOutOfRangeException)
-            //{
-            //    dataGridView1.Rows.Add($"Неожиданный символ '\0'");
-            //    counter++;
-            //}
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                dataGridView1.Rows.Add($"Неожиданный символ '\0'");
+                counter++;
+            }
 
         }
 
         private void EQUAL(DataGridView dataGridView1)
         {
-            //if (lexemes[position].Type == LexemeType.Delimiter)
-            //{
-            //    position++;
+            if (lexemes[position].Type == LexemeType.Delimiter)
+            {
+                position++;
                 if ((lexemes[position].Type == LexemeType.Plus) || (lexemes[position].Type == LexemeType.Minus))
                 {
                     str += lexemes[position].Token;
@@ -555,17 +557,17 @@ namespace laba1
                 {
                     NUMBER(dataGridView1);
                 }
-            //}
-            //else if ((lexemes[position].Type == LexemeType.Plus) || (lexemes[position].Type == LexemeType.Minus))
-            //{
-            //    str += lexemes[position].Token;
-            //    position++;
-            //    NUMBER(dataGridView1);
-            //}
-            //else
-            //{
-            //    NUMBER(dataGridView1);
-            //}
+        }
+            else if ((lexemes[position].Type == LexemeType.Plus) || (lexemes[position].Type == LexemeType.Minus))
+            {
+                str += lexemes[position].Token;
+                position++;
+                NUMBER(dataGridView1);
+    }
+            else
+            {
+                NUMBER(dataGridView1);
+}
         }
 
         private void NUMBER(DataGridView dataGridView1)
@@ -676,9 +678,7 @@ namespace laba1
                 }
                 else if (lexemes[position].Type != LexemeType.Semicolon)
                 {
-
-
-                    
+  
                         dataGridView1.Rows.Add($"Cимвол '{lexemes[position].Token}'", lexemes[position].StartPosition);                       
                         counter++;
                         position++;
